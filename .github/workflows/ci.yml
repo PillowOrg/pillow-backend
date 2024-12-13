@@ -26,9 +26,15 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Run migrations
+        run: |
+          source venv/bin/activate
+          python manage.py makemigrations
+          python manage.py migrate
+
       - name: Run tests
         env:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: |
           source venv/bin/activate
-          python -m unittest discover -s pillow_api/tests
+          python manage.py test pillow_api/tests
