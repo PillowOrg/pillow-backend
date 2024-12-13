@@ -32,4 +32,4 @@ jobs:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: |
           . venv/bin/activate
-          python -m unittest discover -s pillow_api/tests
+          python -m unittest discover -s pillow_backend/pillow_api/tests -p "*.py"
