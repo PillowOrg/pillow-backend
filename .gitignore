@@ -1,0 +1,3 @@
+venv/
+.DS_Store
+pillow_backend/pillow_backend/.env
