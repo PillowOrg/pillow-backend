@@ -26,6 +26,12 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Run migrations
+        run: |
+          source venv/bin/activate
+          python pillow_backend/manage.py makemigrations
+          python pillow_backend/manage.py migrate
+
       - name: Run tests
         env:
           PYTHONPATH: backend
